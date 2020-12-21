@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="footer">
+<div class="footer" style="clear: both">
     <div class="footer__wrapper w1150">
         <div class="footer__top">
             <a class="footer__aside hide" href="tel:10109666">客服电话<span>101xxx66</span></a>

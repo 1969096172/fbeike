@@ -22,9 +22,9 @@
         <li class="header__item fl">贝壳-F</li>
 
         <c:if test="${sessionScope['userid'] eq null}">
-            <li class="header__aside fr pointer typeShowUser" data-el="login" data-event_id="10794" data-event_action="target=login">
+            <li class="header__aside fr pointer typeShowUser">
                         <span data-el="login_box">
-                        <a href="loginServlet?method=getlogin" data-el="btn_login" data-id="dialog_tel" class="btn-login">登录/注册</a>
+                        <a href="loginServlet?method=getlogin"  class="btn-login">登录/注册</a>
                         </span>
             </li>
         </c:if>
@@ -33,9 +33,9 @@
                 int userid = (int) session.getAttribute("userid");
 
             %>
-            <li class="header__aside fr pointer typeShowUser" data-el="login" data-event_id="10794" data-event_action="target=login">
+            <li class="header__aside fr pointer typeShowUser">
                         <span data-el="login_box">
-                        <a href="loginServlet?method=getlogin" data-el="btn_login" data-id="dialog_tel" class="btn-login">个人中心</a>
+                        <a href="loginServlet?method=getmine"  class="btn-login">个人中心</a>
                         </span>
             </li>
         </c:if>

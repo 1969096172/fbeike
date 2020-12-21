@@ -66,6 +66,11 @@ public class LoginServlet extends HttpServlet {
 
     }
 
+    protected void getmine(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.getRequestDispatcher("/WEB-INF/pages/mine.jsp").forward(request, response);
+
+    }
 
     protected void admin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
