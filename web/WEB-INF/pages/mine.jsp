@@ -29,7 +29,7 @@
 
 <div id="bod">
     <div class="con-left">
-        <img id="touimg" src="${pageContext.request.contextPath}/public/img/home.png" >
+        <img id="touimg" src="${pageContext.request.contextPath}/public/img/mine.png" >
         <div class="toutext">欢迎您:</div>
         <ul>
             <li class="ifrli">

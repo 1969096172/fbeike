@@ -65,7 +65,19 @@ public class LoginServlet extends HttpServlet {
         }
 
     }
+    protected void login_up(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String useraccount = request.getParameter("useraccount");
+        String userpassword = request.getParameter("userpassword");
+        String username = request.getParameter("username");
+        String usertel = request.getParameter("usertel");
+        String usercardid = request.getParameter("usercardid");
 
+        loginService.adduser(useraccount, userpassword, username, usertel, usercardid);
+
+
+        request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
+
+    }
     protected void getmine(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.getRequestDispatcher("/WEB-INF/pages/mine.jsp").forward(request, response);

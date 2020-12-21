@@ -41,4 +41,31 @@ public class LoginDAO implements ILoginDAO {
 
         return 0;
     }
+
+    @Override
+    public void adduser(String useraccount, String userpassword, String username, String usertel, String usercardid) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try{
+            connection = DBershou.getConnection();
+            String sql = "insert into user(useraccount, userpassword, username, usertel, usermoney, usercard) values(?,?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,useraccount);
+            preparedStatement.setString(2,userpassword);
+            preparedStatement.setString(3,username);
+            preparedStatement.setString(4,usertel);
+            preparedStatement.setDouble(5,100000);
+            preparedStatement.setString(6,usercardid);
+
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+
+            DBershou.release(connection);
+        }
+    }
 }

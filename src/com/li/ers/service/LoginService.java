@@ -9,4 +9,8 @@ public class LoginService {
         int userid = loginDAO.user_login_in( useraccount,userpassword);
         return userid;
     }
+
+    public void adduser(String useraccount, String userpassword, String username, String usertel, String usercardid) {
+        loginDAO.adduser(useraccount, userpassword, username, usertel, usercardid);
+    }
 }

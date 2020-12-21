@@ -18,14 +18,13 @@
 <body>
 <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form action="AdduserServelet" method="post" enctype="multipart/form-data">
+        <form action="${pageContext.request.contextPath }/loginServlet?method=login_up" method="post">
             <h1>注 册</h1>
-            <span>上传头像</span>
-            <input type="file" name="userurl">
-            <input type="text" name="username" placeholder="账户"  />
+            <input type="text" name="useraccount" placeholder="账户"  />
             <input type="password" name="userpassword" placeholder="密码"  />
+            <input type="text" name="username" placeholder="用户名"  />
             <input type="text" name="usertel" placeholder="电话"  />
-            <input type="text" name="useraddress" placeholder="地址"  />
+            <input type="text" name="usercardid" placeholder="身份证"  />
             <button name="submit" value="submit">注 册</button>
         </form>
     </div>

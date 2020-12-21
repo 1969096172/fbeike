@@ -98,7 +98,7 @@
                         <div class="content__aside__list--bottom oneline phone num ke-agent-sj-phone ke-agent-sj-phone-100000781 ke-agent-sj-phone-1000000026501771" id="phone1">
                             在线租房
                         </div>
-                        <span class="contact__im im__online ke-agent-sj-im ke-agent-sj-im-100000781 ke-agent-sj-im-1000000026501771"> 预约看房 </span>
+                        <span onclick="window.location.href='${pageContext.request.contextPath}/mineServlet?method=goappoint&fangid=${housexx.houseid}';return false" class="contact__im im__online ke-agent-sj-im ke-agent-sj-im-100000781 ke-agent-sj-im-1000000026501771"> 预约看房 </span>
                     </div>
                 </div>
             </div>

@@ -29,4 +29,14 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <description></description>
+        <display-name>MineServlet</display-name>
+        <servlet-name>MineServlet</servlet-name>
+        <servlet-class>com.li.ers.servlet.MineServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MineServlet</servlet-name>
+        <url-pattern>/mineServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
