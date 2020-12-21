@@ -5,6 +5,7 @@
   Time: 19:28
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -216,7 +217,7 @@
                 <div class="search w1150" id="search">
                     <!-- <a class="search__logo" href="/"></a> -->
                     <div class="search__wrap">
-                        <input class="search__input fl" type="text" placeholder="请输入区域、商圈或小区名开始找房" autocomplete="off" value="" name="ming">
+                        <input class="search__input fl" type="text" placeholder="请输入区域、商圈或小区名开始找房" value="" name="ming">
 
                         <button class="search__button fl" id="signUp" style="outline-color: #fff; border: none"></button>
                     </div>
@@ -240,53 +241,52 @@
                     </ul>
                     <ul data-target="area" class="">
                         <li data-id="0" data-type="district" class="filter__item--level2 filter__item--aside strong">
-                            <p rel="nofollow">不限
-                                <input class="filter_radio" type="radio" name="radio1" value="" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
+                            <p rel="nofollow">地区
                             </p>
                         </li>
                         <li data-id="510104" data-type="district" class="filter__item--level2  ">
                             <p>锦江
-                                <input class="filter_radio" type="radio" name="radio1" value="锦江" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
+                                <input class="filter_radio" type="radio" name="radio1" value="1" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
                             </p>
                         </li>
                         <li data-id="510105" data-type="district" class="filter__item--level2  ">
                             <p>青羊
-                                <input class="filter_radio" type="radio" name="radio1" value="青羊" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
+                                <input class="filter_radio" type="radio" name="radio1" value="2" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
                             </p>
                         </li>
                         <li data-id="510107" data-type="district" class="filter__item--level2  ">
                             <p>武侯
-                                <input class="filter_radio" type="radio" name="radio1" value="武侯" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
+                                <input class="filter_radio" type="radio" name="radio1" value="3" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
                             </p>
                         </li>
                         <li data-id="990002" data-type="district" class="filter__item--level2  ">
                             <p>高新
-                                <input class="filter_radio" type="radio" name="radio1" value="高新" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
+                                <input class="filter_radio" type="radio" name="radio1" value="4" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
                             </p>
                         </li>
                         <li data-id="510108" data-type="district" class="filter__item--level2  ">
                             <p >成华
-                                <input class="filter_radio" type="radio" name="radio1" value="成华" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
+                                <input class="filter_radio" type="radio" name="radio1" value="5" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
                             </p>
                         </li>
                         <li data-id="510106" data-type="district" class="filter__item--level2  ">
                             <p >金牛
-                                <input class="filter_radio" type="radio" name="radio1" value="金牛" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
+                                <input class="filter_radio" type="radio" name="radio1" value="6" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
                             </p>
                         </li>
                         <li data-id="23008850" data-type="district" class="filter__item--level2  ">
                             <p>天府新区
-                                <input class="filter_radio" type="radio" name="radio1" value="天府新区" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
+                                <input class="filter_radio" type="radio" name="radio1" value="7" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
                             </p>
                         </li>
                         <li data-id="23009121" data-type="district" class="filter__item--level2  ">
                             <p>高新西
-                                <input class="filter_radio" type="radio" name="radio1" value="高新西" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
+                                <input class="filter_radio" type="radio" name="radio1" value="8" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
                             </p>
                         </li>
                         <li data-id="510122" data-type="district" class="filter__item--level2  ">
                             <p>双流
-                                <input class="filter_radio" type="radio" name="radio1" value="双流" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
+                                <input class="filter_radio" type="radio" name="radio1" value="9" style="width: 15px;height: 15px; transform: translateY(-11%)"/>
                             </p>
                         </li>
                     </ul>
@@ -313,15 +313,6 @@
                                 <input type="radio" value="合租" name="zufangs"  id="man3" style="width: 0px;"/>
                                 合租
                             </label>
-                        </li>
-                    </ul>
-
-                    <ul class="filter__ul" data-el="filterPrice">
-                        <li class="filter__item--level5 filter__item--aside"><a href="javascript:;">租金</a></li>
-                        <li class="filter__item--input" data-url="/zufang/brp{min}erp{max}/">
-                            <input type="text" name="minpic" value="">
-                            -
-                            <input name="maxpic" type="text" value="">元
                         </li>
                     </ul>
                     <ul class="filter__ul">
@@ -357,19 +348,17 @@
         <!-- 房源列表相关信息 -->
         <div class="content w1150" id="content">
             <div class="content__article">
-                <!-- 搜索结果信息 -->
-                <p class="content__title">
-                    已为您找到 <span class="content__title--hl">xxx</span> 套 <a href="https://cd.zu.ke.com/zufang/" target="_blank" style="text-decoration:none;color:black">租房</a>
-                    <span class="content__title--aside"><a href="/zufang/" id="clearUrl">清空条件</a></span>
-                </p>
                 <!-- 有结果时，房源列表 -->
-                <div class="content__list">
-                    <!-- 房源列表模块 -->
-                    <div class="content__list--item">
+                <div class="content__list" >
+                    <c:forEach items="${sessionScope['houseList']}" var="house">
+
+
+                        <!-- 房源列表模块 -->
+                        <div class="content__list--item">
                             <!-- 左边图片 -->
                             <a class="content__list--item--aside" target="_blank" href="homeServlet?method=gofxiangqing">
                                 <img
-                                        src="https://s1.ljcdn.com/matrix_pc/dist/pc/src/resource/default/250-182.png?_v=20201214143047025"
+                                        src=""
                                         data-src="https://ke-image.ljcdn.com/rent-user-avatar/ac7acf4c-2a2c-45ed-84a0-c3947e44c8e2.250x182.jpg"
                                         class="lazyload">
                                 <!-- 是否展示vr图片 -->
@@ -379,8 +368,8 @@
                             <div class="content__list--item--main">
                                 <!-- title -->
                                 <p class="content__list--item--title twoline">
-                                    <a target="_blank" href="/apartment/26828.html">
-                                        独栋·佳寓 武侯新城科创园店 地铁口 可月付 1室1厅
+                                    <a target="_blank" href="homeServlet?method=gofxiangqing&houseId=${house.houseid}&areaId=${house.areaid}&typeId=${house.typeid}">
+                                        ${house.jieshao}
                                     </a>
                                 </p>
                                 <!-- house info -->
@@ -403,14 +392,11 @@
                                 </p>
 
                                 <!-- price -->
-                                <span class="content__list--item-price"><em>1219-1340</em> 元/月</span>
+                                <span class="content__list--item-price"><em>${house.rent}</em> 元/月</span>
                             </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 列表分页模块 -->
-                <div class="content__pg" data-el="page_navigation" data-url="/zufang/pg{page}/" data-totalPage=10 data-curPage=1>
+                            </a>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
@@ -428,6 +414,8 @@
         document.getElementById('clearUrl').href = '/zufang/brp{min}erp{max}/'.split('zufang/')[0] + 'zufang/';
     </script>
 </div>
+<%@ include file="/commons/footer.jsp"%>
+
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
     var fang  = new Vue({
