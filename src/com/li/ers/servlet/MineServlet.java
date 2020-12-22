@@ -137,4 +137,51 @@ public class MineServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/pages/mine_fix.jsp").forward(request, response);
 
     }
+    protected void adappint(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        List<Appoint> appointList = mineService.getadappoint();
+        List<User> userList = mineService.gerusername(appointList);
+        HttpSession session = request.getSession();  //通过request获取session
+        session.setAttribute("adappointList", appointList);
+        session.setAttribute("useradxx", userList);
+        request.getRequestDispatcher("/WEB-INF/admin/adappint.jsp").forward(request, response);
+
+    }
+
+    protected void upload(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.getRequestDispatcher("/WEB-INF/admin/upload.jsp").forward(request, response);
+
+    }
+    protected void upfang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int areaidx = Integer.parseInt(request.getParameter("areaidx"));
+        String xiaoqu = request.getParameter("xiaoqu");
+        int kindidx = Integer.parseInt(request.getParameter("kindidx"));
+        String chaoxiang = request.getParameter("chaoxiang");
+        String dianti = request.getParameter("dianti");
+        String building = request.getParameter("building");
+        double expectation_price = Double.parseDouble(request.getParameter("expectation_price"));
+        String fangshi = request.getParameter("fangshi");
+        String zuqi = request.getParameter("zuqi");
+        String addrdss = request.getParameter("addrdss");
+
+        mineService.addfang(areaidx, xiaoqu, kindidx, chaoxiang, dianti, building, expectation_price, fangshi, zuqi, addrdss);
+
+        request.getRequestDispatcher("/WEB-INF/admin/upload.jsp").forward(request, response);
+
+    }
+
+    protected void adorder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();  //通过request获取session
+
+        List<Order> adorderList = mineService.getallorder();
+        session.setAttribute("adorderxx", adorderList);
+        request.getRequestDispatcher("/WEB-INF/admin/adorder.jsp").forward(request, response);
+
+    }
+    protected void chagorst(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int orid = Integer.parseInt(request.getParameter("adorderid"));
+        mineService.chagst(orid);
+        adorder(request,response);
+    }
 }

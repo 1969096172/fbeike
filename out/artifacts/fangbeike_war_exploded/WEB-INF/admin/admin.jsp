@@ -118,16 +118,23 @@
                 <a class="home_text"><img class="home_img" src="${pageContext.request.contextPath}/public/img/home.png"></a>
                 <ul class="beike__nav--tab">
                     <li>
-                        <a class="cur" href="/zufang/">贝壳-F</a>
+                        <a class="cur" href="javascript:void(0)">贝壳-F</a>
                     </li>
                     <li>
-                        <a class="cur" href="">预约看房处理</a>
+                        <a class="cur" href="${pageContext.request.contextPath}/mineServlet?method=adappint" target="minenav">预约看房处理</a>
                     </li>
                     <li>
-                        <a class="cur" href="">发布房源</a>
+                        <a class="cur" href="${pageContext.request.contextPath}/mineServlet?method=adorder" target="minenav">在线租房处理</a>
+                    </li>
+                    <li>
+                        <a class="cur" href="${pageContext.request.contextPath}/mineServlet?method=upload">发布房源</a>
                     </li>
                 </ul>
             </div>
+        </div>
+        <div style="background-color: #0075FF; width: 100%; height: 500px;">
+            <iframe src="${pageContext.request.contextPath}/mineServlet?method=adappint" name="minenav" frameborder="0"width="80%" height="100%" scrolling="yes"></iframe>
+
         </div>
     </div>
 </div>

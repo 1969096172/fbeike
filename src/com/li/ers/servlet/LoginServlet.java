@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 //            HttpSession session = request.getSession();  //通过request获取session
 //            session.setAttribute("adminid",adminid);
 //            session.setAttribute("goodsList",goodsList);
-//            request.getRequestDispatcher("/WEB-INF/admin/admin.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/admin/admin.jsp").forward(request, response);
         }else {
             int userid = loginService.login_in(useraccount,userpassword);
             HttpSession session = request.getSession();  //通过request获取session
