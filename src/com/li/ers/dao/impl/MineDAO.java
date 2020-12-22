@@ -3,6 +3,7 @@ package com.li.ers.dao.impl;
 import com.li.ers.dao.IMineDAO;
 import com.li.ers.db.DBershou;
 import com.li.ers.model.Appoint;
+import com.li.ers.model.Order;
 import com.li.ers.model.User;
 
 import javax.servlet.http.HttpSession;
@@ -157,5 +158,73 @@ public class MineDAO implements IMineDAO {
         }finally {
             DBershou.release(connection);
         }
+    }
+
+    @Override
+    public void addorder(String data, String time, int userid, int fandido, double dqian) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try{
+            connection = DBershou.getConnection();
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+            String tody= df.format(new Date());// new Date()为获取当前系统时间
+            String sql = "insert into orders(ordertime, starttime, endtime, money, userid, houseid, orderst) values(?,?,?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,tody);
+            preparedStatement.setString(2,data);
+            preparedStatement.setString(3,time);
+            preparedStatement.setDouble(4,dqian);
+            preparedStatement.setInt(5,userid);
+            preparedStatement.setInt(6,fandido);
+            preparedStatement.setInt(7,0);
+
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+
+            DBershou.release(connection);
+        }
+    }
+
+    @Override
+    public List<Order> getorder(int userid) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try{
+            connection = DBershou.getConnection();
+            String sql = "select * from orders where userid=? and orderst=0";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,userid);
+            resultSet = preparedStatement.executeQuery();
+            List<Order> orderList = new ArrayList<>();
+            while (resultSet.next()){
+                Order order = new Order();
+                order.setOrderid(resultSet.getInt("ordersid"));
+                order.setOrdertime(resultSet.getString("ordertime"));
+                order.setStarttime(resultSet.getString("starttime"));
+                order.setEndtime(resultSet.getString("endtime"));
+                order.setMoney(resultSet.getDouble("money"));
+                order.setUserid(resultSet.getInt("userid"));
+                order.setHouseid(resultSet.getInt("houseid"));
+                order.setOrderst(resultSet.getInt("orderst"));
+                orderList.add(order);
+
+            }
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+            return orderList;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBershou.release(connection);
+        }
+        return null;
     }
 }

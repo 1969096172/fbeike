@@ -1,6 +1,8 @@
 package com.li.ers.servlet;
 
 import com.li.ers.model.Appoint;
+import com.li.ers.model.House;
+import com.li.ers.model.Order;
 import com.li.ers.model.User;
 import com.li.ers.service.HouseService;
 import com.li.ers.service.MineService;
@@ -74,6 +76,46 @@ public class MineServlet extends HttpServlet {
         session.setAttribute("appointxx", appointList);
         session.setAttribute("userxx", userxx);
         request.getRequestDispatcher("/WEB-INF/pages/yuyue.jsp").forward(request, response);
+
+    }
+
+    protected void seorder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();  //通过request获取session
+        int userid = (int) session.getAttribute("userid");
+        User userxx = mineService.getuser(userid);
+
+        List<Order> orderList = mineService.getorder(userid);
+        session.setAttribute("orderxx", orderList);
+        session.setAttribute("userxx", userxx);
+        request.getRequestDispatcher("/WEB-INF/pages/seorder.jsp").forward(request, response);
+
+    }
+
+    protected void goorder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String fangId = request.getParameter("fangid");
+        int fid = Integer.parseInt(fangId);
+        House house = houseService.gethouse(fid);
+        HttpSession session = request.getSession();  //通过request获取session
+        if (session.getAttribute("userid") != null){
+            session.setAttribute("fandidop", fangId);
+            session.setAttribute("fg", house);
+            request.getRequestDispatcher("/WEB-INF/pages/order.jsp").forward(request, response);
+        }else {
+            request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
+        }
+    }
+    protected void toorder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String data = request.getParameter("data");
+        String time = request.getParameter("time");
+        String qian = request.getParameter("qian");
+        double dqian = Double.parseDouble(qian);
+        int fandido = Integer.parseInt(request.getParameter("fangide"));
+        HttpSession session = request.getSession();  //通过request获取session
+        int userid = (int) session.getAttribute("userid");
+
+        mineService.addorder(data, time, dqian, userid, fandido);
+        houseService.chagst(fandido);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
     protected void voeryuyue(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -39,20 +39,20 @@
     </style>
 </head>
 <body>
-    <p class="tou">预约信息</p>
-    <p class="tou">预约时间</p>
-    <p class="tou">预留电话</p>
-    <p class="tou">用户</p>
-    <p class="tou">房源编号</p>
-    <c:forEach items="${sessionScope['appointxx']}" var="appoint">
-        <p class="con"><a href="${pageContext.request.contextPath}/mineServlet?method=voeryuyue&opid=${appoint.appointid}">点击完成</a></p>
-        <p class="con">${appoint.appointtime}</p>
-        <p class="con">${appoint.appointtel}</p>
-        <p class="con">${userxx.username}</p>
-        <p class="con">${appoint.houseid}</p>
-        <div id="contion"></div>
+<p class="tou">入住时间</p>
+<p class="tou">租期(月)</p>
+<p class="tou">金额(¥)</p>
+<p class="tou">用户</p>
+<p class="tou">房源编号</p>
+<c:forEach items="${sessionScope['orderxx']}" var="orderxx">
+    <p class="con">${orderxx.starttime}</p>
+    <p class="con">${orderxx.endtime}</p>
+    <p class="con">${orderxx.money}</p>
+    <p class="con">${userxx.username}</p>
+    <p class="con">${orderxx.houseid}</p>
+    <div id="contion"></div>
 
-    </c:forEach>
+</c:forEach>
 
 </body>
 </html>

@@ -36,7 +36,7 @@
                 <a href="${pageContext.request.contextPath}/mineServlet?method=goyuyue" target="minenav">预约信息</a>
             </li>
             <li class="ifrli">
-                <a target="minenav">签订合同</a>
+                <a href="${pageContext.request.contextPath}/mineServlet?method=seorder" target="minenav">签订合同</a>
             </li>
             <li class="ifrli">
                 <a href="${pageContext.request.contextPath}/mineServlet?method=gofix" target="minenav">编辑资料</a>
@@ -48,5 +48,7 @@
     </div>
 </div>
 <%@ include file="/commons/footer.jsp"%>
+<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+<script type="text/javascript" src="<%=jsUrl%>kanbanliang.js"></script>
 </body>
 </html>

@@ -15,6 +15,16 @@ public class Order {
 
     private int houseid;
 
+    private int orderst;
+
+    public int getOrderst() {
+        return orderst;
+    }
+
+    public void setOrderst(int orderst) {
+        this.orderst = orderst;
+    }
+
     public int getOrderid() {
         return orderid;
     }

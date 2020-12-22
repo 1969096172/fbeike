@@ -5,6 +5,10 @@
   Time: 19:28
   To change this template use File | Settings | File Templates.
 --%>
+<%
+    String jsUrl=request.getContextPath()+"/public/js/";
+    String cssUrl=request.getContextPath()+"/public/css/";
+%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -444,6 +448,8 @@
         }
     })
 </script>
+<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+<script type="text/javascript" src="<%=jsUrl%>kanbanliang.js"></script>
 </body>
 
 
