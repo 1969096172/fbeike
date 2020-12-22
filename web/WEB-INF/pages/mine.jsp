@@ -30,10 +30,10 @@
 <div id="bod">
     <div class="con-left">
         <img id="touimg" src="${pageContext.request.contextPath}/public/img/mine.png" >
-        <div class="toutext">欢迎您:</div>
+        <div class="toutext">欢迎您:${userxx.username}</div>
         <ul>
             <li class="ifrli">
-                <a target="minenav">预约信息</a>
+                <a href="${pageContext.request.contextPath}/mineServlet?method=goyuyue" target="minenav">预约信息</a>
             </li>
             <li class="ifrli">
                 <a target="minenav">签订合同</a>
@@ -44,7 +44,7 @@
         </ul>
     </div>
     <div class="con-right">
-        <iframe src="" name="minenav" frameborder="0"width="100%" height="100%" scrolling="yes"></iframe>
+        <iframe src="${pageContext.request.contextPath}/mineServlet?method=goyuyue" name="minenav" frameborder="0"width="100%" height="100%" scrolling="yes"></iframe>
     </div>
 </div>
 <%@ include file="/commons/footer.jsp"%>

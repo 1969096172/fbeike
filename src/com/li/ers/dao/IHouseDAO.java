@@ -14,4 +14,6 @@ public interface IHouseDAO {
     Area getarea(int areaId);
 
     Housetype gethousetype(int typeId);
+
+    void chagest(int fandido);
 }

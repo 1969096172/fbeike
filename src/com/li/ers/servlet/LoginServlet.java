@@ -1,6 +1,8 @@
 package com.li.ers.servlet;
 
+import com.li.ers.model.User;
 import com.li.ers.service.LoginService;
+import com.li.ers.service.MineService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +15,7 @@ import java.util.List;
 
 public class LoginServlet extends HttpServlet {
     LoginService loginService = new LoginService();
+    MineService mineService = new MineService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -80,6 +83,10 @@ public class LoginServlet extends HttpServlet {
     }
     protected void getmine(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        HttpSession session = request.getSession();  //通过request获取session
+        int userid = (int) session.getAttribute("userid");
+        User userxx = mineService.getuser(userid);
+        session.setAttribute("userxx", userxx);
         request.getRequestDispatcher("/WEB-INF/pages/mine.jsp").forward(request, response);
 
     }

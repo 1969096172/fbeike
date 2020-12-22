@@ -21,11 +21,8 @@ public class HouseDAO implements IHouseDAO {
         ResultSet resultSet = null;
         try{
 
-            String sql = "select * from house";
+            String sql = "select * from house where status=0";
             connection = DBershou.getConnection();
-            if (ares >0 || housetype >0 || "合租".equals(zufangs) || "整租".equals(zufangs)){
-                sql += " where ";
-            }
             if(ares > 0){
                 sql += " and areaid="+ares;
             }
@@ -176,5 +173,26 @@ public class HouseDAO implements IHouseDAO {
         }
 
         return null;
+    }
+
+    @Override
+    public void chagest(int fandido) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            String sql = "update house set status=1 where houseid=?";
+            connection = DBershou.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,fandido);
+
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBershou.release(connection);
+        }
     }
 }

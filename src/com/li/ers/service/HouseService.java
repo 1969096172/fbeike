@@ -30,4 +30,8 @@ public class HouseService {
         Housetype housetype  = houseDAO.gethousetype(typeId);
         return housetype;
     }
+
+    public void chagst(int fandido) {
+        houseDAO.chagest(fandido);
+    }
 }
