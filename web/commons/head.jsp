@@ -37,6 +37,9 @@
                         <span data-el="login_box">
                         <a href="loginServlet?method=getmine"  class="btn-login">个人中心</a>
                         </span>
+                        <span data-el="login_box">
+                        <a href="loginServlet?method=outlogin"  class="btn-login">退出登录</a>
+                        </span>
             </li>
         </c:if>
     </ul>

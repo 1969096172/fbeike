@@ -96,4 +96,14 @@ public class LoginServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/admin/admin.jsp").forward(request, response);
 
     }
+    protected void outlogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();  //通过request获取session
+
+        //销毁session对象
+        session.invalidate();
+
+        //跳转页面：首页
+        response.sendRedirect("index.jsp");
+
+    }
 }

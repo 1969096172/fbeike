@@ -81,4 +81,18 @@ public class MineServlet extends HttpServlet {
        mineService.overap(op,1);
        goyuyue(request,response);
     }
+
+    protected void gofix(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.getRequestDispatcher("/WEB-INF/pages/mine_fix.jsp").forward(request, response);
+
+    }
+
+    protected void tofix(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String oldpw = request.getParameter("oldpw");
+        String newpw = request.getParameter("newpw");
+        mineService.tofix(oldpw, newpw);
+        request.getRequestDispatcher("/WEB-INF/pages/mine_fix.jsp").forward(request, response);
+
+    }
 }

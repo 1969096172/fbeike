@@ -15,6 +15,7 @@
             float: left;
             width: 19%;
             border-left: 1px solid #0075FF;
+            border-top: 1px solid #0075FF;
             border-bottom: 1px solid #0075FF;
             text-align: center;
         }

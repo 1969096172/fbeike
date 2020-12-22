@@ -13,4 +13,6 @@ public interface IMineDAO {
     List<Appoint> getappoint(int userid);
 
     void overop(int op, int i);
+
+    void tofix(String oldpw, String newpw);
 }

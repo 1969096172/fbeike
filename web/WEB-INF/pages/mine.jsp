@@ -39,7 +39,7 @@
                 <a target="minenav">签订合同</a>
             </li>
             <li class="ifrli">
-                <a target="minenav">编辑资料</a>
+                <a href="${pageContext.request.contextPath}/mineServlet?method=gofix" target="minenav">编辑资料</a>
             </li>
         </ul>
     </div>

@@ -26,4 +26,8 @@ public class MineService {
     public void overap(int op, int i) {
         mineDAO.overop(op, i);
     }
+
+    public void tofix(String oldpw, String newpw) {
+        mineDAO.tofix(oldpw, newpw);
+    }
 }

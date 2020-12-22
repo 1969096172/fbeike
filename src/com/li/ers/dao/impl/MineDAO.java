@@ -136,4 +136,26 @@ public class MineDAO implements IMineDAO {
         }
 
     }
+
+    @Override
+    public void tofix(String oldpw, String newpw) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            String sql = "update user set userpassword=? where userpassword=?";
+            connection = DBershou.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,newpw);
+            preparedStatement.setString(2,oldpw);
+
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBershou.release(connection);
+        }
+    }
 }
