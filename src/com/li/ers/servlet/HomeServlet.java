@@ -43,6 +43,12 @@ public class HomeServlet extends HttpServlet {
         //获取参数
 //        介绍名
         String name = request.getParameter("ming");
+        String names = null;
+        if (name != null){
+            names = new String(name.getBytes("ISO-8859-1"),"utf-8");
+        }else {
+            names = "";
+        }
 //        地区
         String ares = request.getParameter("radio1");
         int areaid = 0;
@@ -51,13 +57,20 @@ public class HomeServlet extends HttpServlet {
         }
 //        租赁方式
         String zufangs = request.getParameter("zufangs");
+        String zufangss = null;
+        if (zufangs != null){
+            zufangss = new String(zufangs.getBytes("ISO-8859-1"),"utf-8");
+        }else{
+            zufangss = "";
+        }
+
         String housetypestr = request.getParameter("radio2");
         int housetype = 0;
         if (housetypestr != null){
             housetype = Integer.parseInt(housetypestr);
         }
 
-        List<House> houseList = houseService.gethouselist(name, areaid, zufangs, housetype);
+        List<House> houseList = houseService.gethouselist(names, areaid, zufangss, housetype);
         HttpSession session = request.getSession();
         session.setAttribute("houseList", houseList);
         request.getRequestDispatcher("/WEB-INF/pages/zufang.jsp").forward(request, response);

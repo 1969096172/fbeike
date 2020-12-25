@@ -71,7 +71,7 @@ public class LoginServlet extends HttpServlet {
     protected void login_up(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String useraccount = request.getParameter("useraccount");
         String userpassword = request.getParameter("userpassword");
-        String username = request.getParameter("username");
+        String username = new String(request.getParameter("username").getBytes("ISO-8859-1"),"utf-8");
         String usertel = request.getParameter("usertel");
         String usercardid = request.getParameter("usercardid");
 

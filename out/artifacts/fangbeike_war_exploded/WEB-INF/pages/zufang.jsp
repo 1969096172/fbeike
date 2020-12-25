@@ -358,7 +358,7 @@
 
 
                         <!-- 房源列表模块 -->
-                        <div class="content__list--item">
+                        <div class="content__list--item"  onclick="window.location.href='${pageContext.request.contextPath}/homeServlet?method=gofxiangqing&houseId=${house.houseid}&areaId=${house.areaid}&typeId=${house.typeid}';return false">
                             <!-- 左边图片 -->
                             <a class="content__list--item--aside" target="_blank" href="homeServlet?method=gofxiangqing">
                                 <img

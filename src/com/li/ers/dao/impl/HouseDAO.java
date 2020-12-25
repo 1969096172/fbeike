@@ -21,7 +21,7 @@ public class HouseDAO implements IHouseDAO {
         ResultSet resultSet = null;
         try{
 
-            String sql = "select * from house where status=0";
+            String sql = "select * from house where status=0 ";
             connection = DBershou.getConnection();
             if(ares > 0){
                 sql += " and areaid="+ares;
@@ -31,6 +31,10 @@ public class HouseDAO implements IHouseDAO {
             }
             if("合租".equals(zufangs) || "整租".equals(zufangs)){
                 sql += " and fangshi='"+zufangs+"'";
+            }
+            if (name != ""){
+                String names= "%"+name+"%";
+                sql +=" and jieshao like'"+names+"'";
             }
             preparedStatement = connection.prepareStatement(sql);
 

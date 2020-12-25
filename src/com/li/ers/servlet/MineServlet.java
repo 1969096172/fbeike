@@ -56,7 +56,7 @@ public class MineServlet extends HttpServlet {
 
     protected void toappoint(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String tel = request.getParameter("tel");
-        String time = request.getParameter("time");
+        String time = new String(request.getParameter("time").getBytes("ISO-8859-1"),"utf-8");
         int fandido = Integer.parseInt(request.getParameter("fangide"));
         HttpSession session = request.getSession();  //通过request获取session
         int userid = (int) session.getAttribute("userid");
@@ -105,7 +105,7 @@ public class MineServlet extends HttpServlet {
         }
     }
     protected void toorder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String data = request.getParameter("data");
+        String data = new String(request.getParameter("data").getBytes("ISO-8859-1"),"utf-8");
         String time = request.getParameter("time");
         String qian = request.getParameter("qian");
         double dqian = Double.parseDouble(qian);
