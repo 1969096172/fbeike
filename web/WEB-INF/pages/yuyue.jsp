@@ -1,3 +1,6 @@
+<%@ page import="com.li.ers.dao.impl.MineDAO" %>
+<%@ page import="com.li.ers.model.House" %>
+<%@ page import="com.li.ers.dao.impl.HouseDAO" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -14,14 +17,13 @@
     <style>
         .tou{
             float: left;
-            width: 19%;
-            border-left: 1px solid #0075FF;
-            border-top: 1px solid #0075FF;
-            border-bottom: 1px solid #0075FF;
+            width: 14%;
+            border-left: 1px solid #B7BBC3;
+            border-top: 1px solid #B7BBC3;
+            border-bottom: 1px solid #B7BBC3;
             text-align: center;
-        }
-        .tou:nth-child(1){
-            border-left: none;
+            font-size: 13px;
+            color: #B7BBC3;
         }
         #contion{
             height: 1px;
@@ -31,25 +33,42 @@
         }
         .con{
             float: left;
-            width: 19%;
+            width: 14%;
             text-align: center;
             font-size: 13px;
         }
+        .fix{
+             background-color: #B7BBC3;
+             color: #dddddd;
+             font-size: 14px;
+             height: 20px;
+             padding-left: 10px;
+         }
 
     </style>
 </head>
 <body>
-    <p class="tou">预约信息</p>
+    <p style="font-size: 11px; color: #B7BBC3">如有问题请联系客服101079666</p>
+    <p class="fix">预约</p>
     <p class="tou">预约时间</p>
     <p class="tou">预留电话</p>
     <p class="tou">用户</p>
-    <p class="tou">房源编号</p>
+    <p class="tou">房源</p>
+    <p class="tou">租金（月）</p>
+    <p class="tou">房源地址</p>
+    <p class="tou">状态</p>
     <c:forEach items="${sessionScope['appointxx']}" var="appoint">
-        <p class="con"><a href="${pageContext.request.contextPath}/mineServlet?method=voeryuyue&opid=${appoint.appointid}">点击完成</a></p>
         <p class="con">${appoint.appointtime}</p>
         <p class="con">${appoint.appointtel}</p>
         <p class="con">${userxx.username}</p>
-        <p class="con">${appoint.houseid}</p>
+        <p class="con">${appoint.jieshao}</p>
+        <p class="con">${appoint.rent}</p>
+        <p class="con">${appoint.detailaddress}</p>
+        <p class="con">
+            <c:if test="${appoint.appointstate == 0}">未处理</c:if>
+            <c:if test="${appoint.appointstate == 1}">已处理</c:if>
+        </p>
+
         <div id="contion"></div>
 
     </c:forEach>

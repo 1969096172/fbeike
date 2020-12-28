@@ -4,4 +4,6 @@ public interface ILoginDAO {
     int user_login_in(String useraccount, String userpassword);
 
     void adduser(String useraccount, String userpassword, String username, String usertel, String usercardid);
+
+    int adminr(String useraccount, String userpassword);
 }

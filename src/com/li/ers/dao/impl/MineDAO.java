@@ -84,7 +84,7 @@ public class MineDAO implements IMineDAO {
         ResultSet resultSet = null;
         try{
             connection = DBershou.getConnection();
-            String sql = "select * from appoint where userid=? and appointstate=0";
+            String sql = "select * from appoint where userid=?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1,userid);
             resultSet = preparedStatement.executeQuery();
@@ -98,6 +98,11 @@ public class MineDAO implements IMineDAO {
                 appoint.setAppointtel(resultSet.getString("appointtel"));
                 appoint.setAppointstate(resultSet.getInt("appointstate"));
                 appoint.setHouseid(resultSet.getInt("houseid"));
+                HouseDAO houseDAO  = new HouseDAO();
+                House house = houseDAO.gethouse(resultSet.getInt("houseid"));
+                appoint.setJieshao(house.getJieshao());
+                appoint.setRent(house.getRent());
+                appoint.setDetailaddress(house.getDetailaddress());
                 appointList.add(appoint);
 
             }
@@ -196,7 +201,7 @@ public class MineDAO implements IMineDAO {
         ResultSet resultSet = null;
         try{
             connection = DBershou.getConnection();
-            String sql = "select * from orders where userid=? and orderst=0";
+            String sql = "select * from orders where userid=?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1,userid);
             resultSet = preparedStatement.executeQuery();
@@ -211,6 +216,11 @@ public class MineDAO implements IMineDAO {
                 order.setUserid(resultSet.getInt("userid"));
                 order.setHouseid(resultSet.getInt("houseid"));
                 order.setOrderst(resultSet.getInt("orderst"));
+                HouseDAO houseDAO  = new HouseDAO();
+                House house = houseDAO.gethouse(resultSet.getInt("houseid"));
+                order.setJieshao(house.getJieshao());
+                order.setRent(house.getRent());
+                order.setDetailaddress(house.getDetailaddress());
                 orderList.add(order);
 
             }
@@ -233,7 +243,7 @@ public class MineDAO implements IMineDAO {
         ResultSet resultSet = null;
         try{
             connection = DBershou.getConnection();
-            String sql = "select * from appoint where appointstate=0";
+            String sql = "select * from appoint";
             preparedStatement = connection.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
             List<Appoint> appointList = new ArrayList<>();

@@ -44,7 +44,7 @@
         </ul>
     </div>
     <div class="con-right">
-        <iframe src="${pageContext.request.contextPath}/mineServlet?method=goyuyue" name="minenav" frameborder="0"width="100%" height="100%" scrolling="yes"></iframe>
+        <iframe src="${pageContext.request.contextPath}/mineServlet?method=goyuyue" name="minenav" frameborder="0" width="100%" height="100%" scrolling="yes"></iframe>
     </div>
 </div>
 <%@ include file="/commons/footer.jsp"%>

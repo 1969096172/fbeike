@@ -120,8 +120,8 @@ public class MineServlet extends HttpServlet {
     }
     protected void voeryuyue(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int op = Integer.parseInt(request.getParameter("opid"));
-       mineService.overap(op,1);
-       goyuyue(request,response);
+        mineService.overap(op,1);
+        adappint(request,response);
     }
 
     protected void gofix(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -155,16 +155,16 @@ public class MineServlet extends HttpServlet {
     }
     protected void upfang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int areaidx = Integer.parseInt(request.getParameter("areaidx"));
-        String xiaoqu = request.getParameter("xiaoqu");
+        String xiaoqu = new String(request.getParameter("xiaoqu").getBytes("ISO-8859-1"),"utf-8");
         int kindidx = Integer.parseInt(request.getParameter("kindidx"));
-        String chaoxiang = request.getParameter("chaoxiang");
-        String dianti = request.getParameter("dianti");
-        String building = request.getParameter("building");
+        String chaoxiang = new String(request.getParameter("chaoxiang").getBytes("ISO-8859-1"),"utf-8");
+        String dianti = new String(request.getParameter("dianti").getBytes("ISO-8859-1"),"utf-8");
+        String building = new String(request.getParameter("building").getBytes("ISO-8859-1"),"utf-8");
         double expectation_price = Double.parseDouble(request.getParameter("expectation_price"));
-        String fangshi = request.getParameter("fangshi");
-        String zuqi = request.getParameter("zuqi");
-        String addrdss = request.getParameter("addrdss");
-
+        String fangshi = new String(request.getParameter("fangshi").getBytes("ISO-8859-1"),"utf-8");;
+        String zuqi = new String(request.getParameter("zuqi").getBytes("ISO-8859-1"),"utf-8");
+        String addrdss = new String(request.getParameter("addrdss").getBytes("ISO-8859-1"),"utf-8");
+//        new String(.getBytes("ISO-8859-1"),"utf-8")
         mineService.addfang(areaidx, xiaoqu, kindidx, chaoxiang, dianti, building, expectation_price, fangshi, zuqi, addrdss);
 
         request.getRequestDispatcher("/WEB-INF/admin/upload.jsp").forward(request, response);

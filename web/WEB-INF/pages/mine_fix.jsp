@@ -17,6 +17,10 @@
             height: 20px;
             padding-left: 10px;
         }
+        .rtd{
+            font-size: 15px;
+            color: #B7BBC3;
+        }
     </style>
 </head>
 <body style="padding-left: 10px">
@@ -27,16 +31,16 @@
     <form action="${pageContext.request.contextPath }/mineServlet?method=tofix" method="post">
         <table style="margin: 30px auto">
             <tr>
-                <td>输入旧密码：</td>
+                <td class="rtd">输入旧密码：</td>
                 <td><input type="password" value="" name="oldpw"></td>
             </tr>
             <tr>
-                <td>输入新密码</td>
+                <td class="rtd">输入新密码</td>
                 <td><input type="password" value="" name="newpw"></td>
             </tr>
             <tr>
                 <td></td>
-                <td><button type="submit" style="background-color: #0075FF; border: none; padding: 3px 5px">确认</button></td>
+                <td ><button type="submit" style="background-color: #E6E5E5; color: #B7BBC3; border: none; padding: 3px 5px">确认</button></td>
             </tr>
         </table>
     </form>

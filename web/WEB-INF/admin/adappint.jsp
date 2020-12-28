@@ -39,20 +39,24 @@
     </style>
 </head>
 <body>
-<p class="tou">预约信息(0未完成/1完成)</p>
 <p class="tou">预约时间</p>
 <p class="tou">预留电话</p>
 <p class="tou">用户</p>
 <p class="tou">房源编号</p>
+<p class="tou">操作</p>
+
 <c:forEach items="${sessionScope['adappointList']}" var="appoint">
 
-    <p class="con">${appoint.appointstate}</p>
     <p class="con">${appoint.appointtime}</p>
     <p class="con">${appoint.appointtel}</p>
     <p class="con">${appoint.userid}</p>
     <p class="con">${appoint.houseid}</p>
-    <div id="contion"></div>
+    <p class="con">
+        <c:if test="${appoint.appointstate == 1}">已完成</c:if>
+        <c:if test="${appoint.appointstate == 0}"><a href="${pageContext.request.contextPath}/mineServlet?method=voeryuyue&opid=${appoint.appointid}">完成预约</a></c:if>
+    </p>
 
+    <div id="contion"></div>
 </c:forEach>
 
 </body>
