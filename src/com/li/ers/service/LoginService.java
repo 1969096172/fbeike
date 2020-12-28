@@ -13,4 +13,9 @@ public class LoginService {
     public void adduser(String useraccount, String userpassword, String username, String usertel, String usercardid) {
         loginDAO.adduser(useraccount, userpassword, username, usertel, usercardid);
     }
+
+    public int admin_in(String useraccount, String userpassword) {
+        int adminr = loginDAO.adminr(useraccount, userpassword);
+        return adminr;
+    }
 }

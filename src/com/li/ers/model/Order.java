@@ -17,6 +17,36 @@ public class Order {
 
     private int orderst;
 
+    private String jieshao;
+
+    public String getJieshao() {
+        return jieshao;
+    }
+
+    public void setJieshao(String jieshao) {
+        this.jieshao = jieshao;
+    }
+
+    public double getRent() {
+        return rent;
+    }
+
+    public void setRent(double rent) {
+        this.rent = rent;
+    }
+
+    public String getDetailaddress() {
+        return detailaddress;
+    }
+
+    public void setDetailaddress(String detailaddress) {
+        this.detailaddress = detailaddress;
+    }
+
+    private double rent;
+
+    private String detailaddress;
+
     public int getOrderst() {
         return orderst;
     }

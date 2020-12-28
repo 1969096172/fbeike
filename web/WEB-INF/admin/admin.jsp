@@ -92,6 +92,9 @@
         background: #2ab78e;
         padding: 10px 6px
     }
+    #live2dcanvas {
+        border: 0 !important;
+    }
 </style>
 <div class="browser__low--wrapper"></div>
 <div class="browser__low--inner">
@@ -118,7 +121,7 @@
                 <a class="home_text"><img class="home_img" src="${pageContext.request.contextPath}/public/img/home.png"></a>
                 <ul class="beike__nav--tab">
                     <li>
-                        <a class="cur" href="javascript:void(0)">贝壳-F</a>
+                        <a class="cur" href="${pageContext.request.contextPath}/homeServlet?method=gatfang">贝壳-F</a>
                     </li>
                     <li>
                         <a class="cur" href="${pageContext.request.contextPath}/mineServlet?method=adappint" target="minenav">预约看房处理</a>
@@ -138,6 +141,20 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+    L2Dwidget.init({"display": {
+            "superSample": 2,
+            "width": 200,
+            "height": 400,
+            "position": "right",
+            "hOffset": 0,
+            "vOffset": 0
+        }
+    });
+</script>
 </body>
 
 

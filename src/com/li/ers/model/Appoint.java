@@ -15,6 +15,36 @@ public class Appoint {
 //房源id
     private int houseid;
 
+    private String jieshao;
+
+    private double rent;
+
+    private String detailaddress;
+
+    public String getDetailaddress() {
+        return detailaddress;
+    }
+
+    public void setDetailaddress(String detailaddress) {
+        this.detailaddress = detailaddress;
+    }
+
+    public String getJieshao() {
+        return jieshao;
+    }
+
+    public void setJieshao(String jieshao) {
+        this.jieshao = jieshao;
+    }
+
+    public double getRent() {
+        return rent;
+    }
+
+    public void setRent(double rent) {
+        this.rent = rent;
+    }
+
     public int getAppointid() {
         return appointid;
     }

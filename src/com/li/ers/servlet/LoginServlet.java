@@ -49,17 +49,21 @@ public class LoginServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
 
     }
+    protected void goad(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.getRequestDispatcher("/WEB-INF/admin/admin.jsp").forward(request, response);
+
+    }
     protected void login_in(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String useraccount = request.getParameter("username");
         String userpassword = request.getParameter("userpassword");
         if (useraccount.equals("admin")){
-//            int adminid = loginService.admin_in(useraccount,userpassword);
-//            List<Goods> goodsList =  adminService.getad0goods();
-//            HttpSession session = request.getSession();  //通过request获取session
-//            session.setAttribute("adminid",adminid);
-//            session.setAttribute("goodsList",goodsList);
-            request.getRequestDispatcher("/WEB-INF/admin/admin.jsp").forward(request, response);
+            int adminid = loginService.admin_in(useraccount,userpassword);
+            if (adminid !=0){
+                request.getRequestDispatcher("/WEB-INF/admin/admin.jsp").forward(request, response);
+            }
+
         }else {
             int userid = loginService.login_in(useraccount,userpassword);
             HttpSession session = request.getSession();  //通过request获取session
